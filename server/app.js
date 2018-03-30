@@ -20,6 +20,16 @@ app.get('/', (req, res) => {
 // Listen to Server
 const port = 3000;
 
-io.on('connection', () => { console.log('socket') });
+io.on('connection', (socket) => {
+    console.log('User Connected');
+
+    socket.on('chat message', (msg) => {
+        console.log(`Message: ${msg}`);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+});
+
 server.listen(port, () => { console.log('now listening to port 3000') });
-// app.listen(port, () => { console.log(`Now listening to Port: ${port}`) });
