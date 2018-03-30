@@ -8,10 +8,9 @@ html(lang="en")
         title Document
     body
         ul#messages
-        form(action="")
+        form(action="" id="chatContainer")
             input(id="m" autocomplete="off")
             button Send
     footer
         script(src="/socket.io/socket.io.js")
-        script.
-            var socket = io();
+        script(src="/javascript/main.js")
