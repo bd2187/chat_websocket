@@ -1,8 +1,19 @@
+"use strict";
+
+// Create websocket connection
 var socket = io();
 
 var chatContainerEl = document.getElementById('chatContainer');
 var message = document.getElementById('m');
 var messages = document.getElementById('messages');
+
+socket.on('connect', function() {
+    console.log('Connected to server');
+});
+
+socket.on('disconnect', function() {
+    console.log('Disconnected from server');
+});
 
 chatContainerEl.addEventListener('submit', function(e) {
     e.preventDefault();
